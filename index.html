@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Weather Application</title>
+	<!-- bower:css -->
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+	<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+	<link rel="stylesheet" href="bower_components/AngularJS-Toaster/toaster.css" />
+	<!-- endbower -->
+
+	<!-- inject:css -->
+	<link rel="stylesheet" href="/app/styles/styles.css">
+	<!-- endinject -->
+</head>
+
+<body class="ng-cloak" ng-app="app">
+
+	<div ng-controller="WeatherController as vm">		
+		<div class="container">
+
+		
+			<div class="col-xs-12 well form-group">
+				<h1>Origin Weather Application</h1>
+				<p>Always know if you'll need an umbrella!</p>	
+			</div>
+
+			
+
+			<div class="btn-group" role="group" aria-label="...">
+				<button class="btn btn-primary" type="submit" ng-click="vm.getWeatherReport('San Diego')">San Diego</button>
+				<button class="btn btn-primary" type="submit" ng-click="vm.getWeatherReport('New York')">New York</button>
+				<button class="btn btn-primary" type="submit" ng-click="vm.getWeatherReport('Washington, D. C.')">Washington D.C</button>
+				<button class="btn btn-primary" type="submit" ng-click="vm.getWeatherReport('London')">London</button>
+				<button class="btn btn-primary" type="submit" ng-click="vm.getWeatherReport('Tokyo')">Tokyo</button>
+			</div>	
+
+
+						
+			<div>
+				<div class="input-group form-group">
+      				<input type="text" ng-model="cityName" class="form-control" placeholder="Search by city..">
+     				<span class="input-group-btn">
+        				<button class="btn btn-default" type="button" ng-click="vm.getWeatherReport(cityName)">Go!</button>
+     				</span>
+    			</div>
+			</div>
+
+
+
+			<div class="row">
+				
+				<div class="col-xs-6">
+					<div class="panel panel-info">						
+						
+						<div class="panel-heading">
+							<label>City Information</label>
+						</div>
+						
+						<div class="panel-body">
+							<div class="row text-center">
+								<label class="city col-xs-12 text-center">
+								<i class="fa fa-cloud" aria-hidden="true"></i>
+								{{vm.name}}
+								</label>
+							</div>	
+							
+							<div class="row text-center">
+							<label class="col-xs-4">Temperature (F)</label>
+							<label class="col-xs-4">Pressure</label>
+							<label class="col-xs-4">Humidity</label>
+							</div>
+							
+							<div class="row text-center">
+							<label class="greenfont col-xs-4">{{vm.temp}}</label>
+							<label class="greenfont col-xs-4">{{vm.pressure}}</label>
+							<label class="greenfont col-xs-4">{{vm.humidity}}</label>
+							</div>
+							
+							<div class="row text-center">
+							<label class="col-xs-4">Lowest Temp (F)</label>
+							<label class="col-xs-4">Highest Temp (F)</label>
+							<label class="col-xs-4">Wind Speed</label>
+							</div>
+							
+							<div class="row text-center"> 
+							<label class="greenfont col-xs-4">{{vm.lowtemp}}</label>
+							<label class="greenfont col-xs-4">{{vm.hightemp}}</label>
+							<label class="greenfont col-xs-4">{{vm.windspeed}}</label>							
+							</div>
+
+						</div>
+
+					</div> 
+				</div>
+
+
+				<div class="col-xs-6">
+					<div class="panel panel-info">
+						
+						<div class="panel-heading">
+							<label>Search History</label>
+						</div>
+
+						<div class="panel-body">
+							<table class="table-striped table-hover col-xs-12">
+		      					<tr ng-repeat="searchHistory in vm.searchHistories">
+		      						<td>{{searchHistory.event}}</td>
+		      						<td class="text-right">{{searchHistory.date | date: 'MM/dd/yyyy HH:mm:ss'}}</td>
+	      						</tr>	      						
+	      					</table>
+	      				</div>	
+						
+
+					</div>
+				</div>
+
+			</div>
+
+
+		</div>		
+	</div>			
+
+
+
+
+
+
+<!-- bower:js -->
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/AngularJS-Toaster/toaster.js"></script>
+<!-- endbower -->
+
+<!-- inject:js -->
+<script src="/app/app.js"></script>
+<script src="/app/weather.controller.js"></script>
+<script src="/app/weather.factory.js"></script>
+<!-- endinject -->
+
+</body>
+</html>
