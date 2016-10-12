@@ -24,9 +24,10 @@
         		method: 'GET',
         		url: 'http://api.openweathermap.org/data/2.5/weather',
         		params: {
-        			APPID: '756a2c8a5cb2292acc5fe362f3ac9907',
+        			APPID: '3a9e7622dcfa46987bcd0995e9271255',
         			q: cityName,
                     units: "imperial"
+
         		},
         	}).then(function(response) {
 

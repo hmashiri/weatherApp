@@ -19,7 +19,7 @@
     "bootstrap": "^3.3.7",
     "update": "^0.7.4",
     "font-awesome": "^4.6.3",
-    "AngularJS-Toaster": "angularjs-toaster#^2.0.0"
+    "angular-toastr": "^2.1.1"
   },
   "overrides": {
     "bootstrap": {
