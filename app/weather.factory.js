@@ -27,13 +27,15 @@
         			APPID: '3a9e7622dcfa46987bcd0995e9271255',
         			q: cityName,
                     units: "imperial"
-
         		},
+                
         	}).then(function(response) {
 
         		return response.data;
         		
         	});
         }
+
+
     }
 })();
